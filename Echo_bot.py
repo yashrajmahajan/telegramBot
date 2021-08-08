@@ -17,7 +17,7 @@ def error(update, context):
 
 def main():
 
-    updater = Updater("1946266244:AAEifSpYvkVUQPzHFjK4wQQqdBm0gAvaEP8", use_context=True)
+    updater = Updater("token is private", use_context=True)
     dp = updater.dispatcher
 
     dp.add_handler(CommandHandler("book", book))
