@@ -12,8 +12,8 @@ from faunadb.client import FaunaClient
 from datetime import datetime, timedelta
 from telegram import InlineKeyboardButton, InlineKeyboardMarkup, Update, ReplyKeyboardMarkup
 
-telegram_bot_token = "1946266244:AAEifSpYvkVUQPzHFjK4wQQqdBm0gAvaEP8"
-fauna_secret = "fnAEQFy_QQACCxEe2_ALWl2SA2N4LBz2nUFKdjwf"
+telegram_bot_token = "token is private"
+fauna_secret = "Key is private"
 
 updater = Updater(token=telegram_bot_token, use_context=True)
 dispatcher = updater.dispatcher
