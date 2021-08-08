@@ -16,7 +16,7 @@ from datetime import datetime, timedelta
 from telegram import InlineKeyboardButton, InlineKeyboardMarkup, Update, ReplyKeyboardMarkup
 import telegram
 
-API_KEY = '1946266244:AAEifSpYvkVUQPzHFjK4wQQqdBm0gAvaEP8'
+API_KEY = 'Token is not private '
 
 # Set up the logging
 logging.basicConfig(format='%(asctime)s - %(name)s - %(levelname)s - %(message)s', level=logging.INFO)
