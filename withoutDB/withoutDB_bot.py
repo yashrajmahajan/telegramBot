@@ -30,7 +30,7 @@ def help_command(update, context):
     update.message.reply_text('Contact developer @yashrajmahajan')
 
 def process_message(message, response_array, response):
-    # Splits the message and the punctuation into an array
+   
     list_message = re.findall(r"[\w']+|[.,!?;]", message.lower())
 
     # Scores the amount of words in the message
@@ -39,8 +39,7 @@ def process_message(message, response_array, response):
         if word in response_array:
             score = score + 1
 
-    # Returns the response and the score of the response
-    # print(score, response)
+    
     return [score, response]
 
 def dates(update: Update, context: CallbackContext) -> None:
@@ -66,8 +65,7 @@ def button(update: Update, context: CallbackContext) -> None:
     """Parses the CallbackQuery and updates the message text."""
     query1 = update.callback_query
 
-    # CallbackQueries need to be answered, even if no notification to the user is needed
-    # Some clients may have trouble otherwise. See https://core.telegram.org/bots/api#callbackquery
+    
     query1.answer()
 
     query1.edit_message_text(text=f'Selected option: {query1.data} \n\nplease type your age (e.g. age, 21)')
@@ -81,7 +79,7 @@ def times(update, context):
     bot.send_message(chat_id=chat_id, text='choose option:', reply_markup=menu_markup)
 
 def get_response(message):
-    # Add your custom responses here
+    
      
     response_list = [
         process_message(message, ['name'], 'Enter your Location (e.g. location, pune)'),
@@ -91,16 +89,16 @@ def get_response(message):
     ]
     
 
-    # Checks all of the response scores and returns the best matching response
+    
     response_scores = []
     for response in response_list:
         response_scores.append(response[0])
 
-    # Get the max value for the best response and store it into a variable
+    
     winning_response = max(response_scores)
     matching_response = response_list[response_scores.index(winning_response)]
 
-    # Return the matching response to the user
+    
     if winning_response == 0:
         bot_response = 'I didn\'t understand what you wrote. please follow above instructions.'
     else:
@@ -131,7 +129,7 @@ def main() -> None:
     bot = telegram.Bot(API_KEY)
     dp = updater.dispatcher
 
-    # Commands
+    
     dp.add_handler(CommandHandler('start', start_command))
     dp.add_handler(CommandHandler('help', help_command))
     dp.add_handler(CommandHandler('show', show))
@@ -142,7 +140,7 @@ def main() -> None:
     dp.add_handler(CommandHandler('time', times))
     #dp.add_handler(CallbackQueryHandler(button2))
 
-    # Messages
+    
     dp.add_handler(MessageHandler(Filters.text, handle_message))
 
     # Log all errors
